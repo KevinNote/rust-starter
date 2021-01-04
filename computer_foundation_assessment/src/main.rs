@@ -63,8 +63,8 @@ fn get_test_question(option: i16, range: i32) -> i32 {
     if option == 5 {
         get_test_question(rng.gen_range(1..5), range)
     } else {
-        let mut first_number = rng.gen_range(0..range + 1);
-        let mut second_number = rng.gen_range(0..range + 1);
+        let mut first_number = rng.gen_range(0..(range + 1));
+        let mut second_number = rng.gen_range(0..(range + 1));
         let result: i32;
         match option {
             1 => {
@@ -81,8 +81,8 @@ fn get_test_question(option: i16, range: i32) -> i32 {
             }
             4 => {
                 while second_number == 0 || first_number % second_number != 0 {
-                    first_number = rng.gen_range(0..range + 1);
-                    second_number = rng.gen_range(0..range + 1);
+                    first_number = rng.gen_range(0..(range + 1));
+                    second_number = rng.gen_range(0..(range + 1));
                 }
                 print!("{} / {} = ", first_number, second_number);
                 result = first_number / second_number;
