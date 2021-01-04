@@ -23,6 +23,7 @@ fn main() {
 }
 
 fn test() {
+    println!("Type selection");
     println!("1. +");
     println!("2. -");
     println!("3. *");
@@ -30,9 +31,14 @@ fn test() {
     println!("5. mixed");
     secure_print(ENTER_OPTION);
     let opera = get_option(1, 5, ENTER_OPTION, WRONG_OPTION_RANGE);
+    println!("Range selection");
+    println!("1. 0-10");
+    println!("2. 0-100");
+    println!("3. 0-1000");
+    let range = (10 as i32).pow(get_option(1, 3, ENTER_OPTION, WRONG_OPTION_RANGE) as u32);
     let mut correct_counter = 0;
     for _i in 0..10 {
-        let answer = get_test_question(opera, 10);
+        let answer = get_test_question(opera, range);
 
         let user_answer: i32;
         loop {
