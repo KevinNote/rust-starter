@@ -30,6 +30,7 @@ fn test() {
     println!("5. mixed");
     secure_print(ENTER_OPTION);
     let opera = get_option(1, 5, ENTER_OPTION, WRONG_OPTION_RANGE);
+    let mut correct_counter = 0;
     for _i in 0..10 {
         let answer = get_test_question(opera, 10);
 
@@ -50,11 +51,12 @@ fn test() {
         }
         if user_answer == answer {
             println!("YOU ARE RIGHT!");
+            correct_counter += 1;
         } else {
             println!("YOU ARE WRONG! ANSWER IS {}", answer);
         }
     }
-    println!("FINISHED!");
+    println!("FINISHED! YOUR SCORE IS {}/10", correct_counter);
 }
 
 fn get_test_question(option: i16, range: i32) -> i32 {
